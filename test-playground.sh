@@ -97,6 +97,9 @@ services:
     command: --local-infile=1
     environment: 
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: product_import_test
+      MYSQL_USER: test_user
+      MYSQL_PASSWORD: test_password
     healthcheck:
       test: "mysqladmin ping -h localhost -u root -p"
       interval: 5s
@@ -152,7 +155,7 @@ create_import_script() {
 ###############################################################################
 
 # Configuration
-MYSQL_HOST="localhost"
+MYSQL_HOST="127.0.0.1"
 MYSQL_PORT="33306"
 MYSQL_USER="test_user"
 MYSQL_PASS="test_password"
