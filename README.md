@@ -3,6 +3,17 @@
 This bash script is a Product Import Testing Playground - a comprehensive testing framework designed to test and benchmark high-volume product import pipelines. It is a Docker‐based, MySQL-only bulk import and upsert toolkit for product data.  
 It uses a staging (`temp_products`) table, `LOAD DATA INFILE`, and an `INSERT … ON DUPLICATE KEY UPDATE` merge to efficiently ingest and update millions of records.
 
+## Problem It Solves
+Modern e-commerce platforms, ERP systems, and marketplaces often need to import and update millions of product records quickly and reliably—whether it's syncing vendor catalogs, integrating third-party data feeds, or batch-updating prices and stock.
+These bulk import operations, however, come with significant challenges:
+
+### The Core Challenges
+- **Performance Bottlenecks**: Traditional row-by-row inserts or ORM-based imports are too slow and inefficient for large datasets.
+- **Data Integrity**: Merging (upserting) new and existing product data without corrupting or duplicating records is complex.
+- **Operational Friction**: Spinning up a realistic import environment for testing is usually painful and not easily reproducible.
+- **Lack of Observability**: Many import tools act as black boxes with little to no visibility into performance or import accuracy.
+
+
 ## Features
 
 - **Pure MySQL**: No MongoDB or external stores—everything lives in InnoDB.
